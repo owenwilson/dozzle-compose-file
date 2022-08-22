@@ -1,0 +1,20 @@
+version: "3"
+services:
+  dozzle:
+    hostname: dozzle
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8080:8080
+    environment:
+      DOZZLE_LEVEL: trace
+      DOZZLE_USERNAME: "exampleUserName"
+      DOZZLE_PASSWORD: "examplePassword"
+      DOZZLE_KEY: "keydozzle"
+    networks:
+      - net-dozzle
+
+networks:
+  net-dozzle:
